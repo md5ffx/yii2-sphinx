@@ -98,6 +98,9 @@ class MatchBuilder extends BaseObject
         if ($match instanceof Expression) {
             return $this->buildMatchValue($match, $params);
         }
+        if ($match instanceof MatchExpression) {
+            return $this->build($match, $params);
+        }
 
         if (!is_array($match)) {
             return $match;
